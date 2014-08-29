@@ -1,19 +1,19 @@
 #ifndef MM_H
 #define MM_H
 
+#include <list.h>
 #define MAX_MEM_LEN 7
 #define MEM_MAN_ADDR 0x100000		//管理内存结构体的起始位置
 struct meminfo
 {
+	struct list_head list;	//构成双向链表
 	unsigned int addr;
 	unsigned int size;
 	int flag;			//为1表示正在使用，为0表示可分配
-	struct meminfo *prev;
-	struct meminfo *next;
 };
 struct memman
 {
-	struct meminfo *meminfo[MAX_MEM_LEN];	//[0]表示2K内存，[1]表示4K内存，[2]表示8K内存，[3]~16K，[4]~32K,[5]~64K,[6]~128K
+	struct meminfo *meminfo[MAX_MEM_LEN];	//[0]表示1K内存，[1]表示2K内存，[2]表示4K内存，[3]~8K，[4]~16K,[5]~32K,[6]~64K
 };
 
 int memman_buoy;
