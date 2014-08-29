@@ -1,5 +1,3 @@
-# Skelix by Xiaoming Mo (xiaoming.mo@skelix.org)
-# Licence: GPLv2
 		.text
 		.globl	pm_mode
 		.include "kernel.inc"
