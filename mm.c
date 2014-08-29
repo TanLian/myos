@@ -108,10 +108,10 @@ struct meminfo *get_first_child(struct memman *mem,struct meminfo *parent)
 unsigned int mm_alloc(struct memman *mem,unsigned int size)
 {
 	struct memman *memm = mem;
-	if(size>128*1024)
+	if(size>64*1024)
 	{
-		int num = size/(128*1024);
-		int yu = size%(128*1024);
+		int num = size/(64*1024);
+		int yu = size%(64*1024);
 		if(yu)
 			num++;
 		int count = 0;
